@@ -6,12 +6,17 @@ from machine import Pin
 import time
 import random
 import json
+import requests
+import network   # handles connecting to WiFi
+import urequests # handles making and servicing network requests
+
+
 
 
 N: int = 3
 sample_ms = 10.0
 on_ms = 500
-
+database_api_url = 'https://ece463miniproject-default-rtdb.firebaseio.com/scores.json'
 
 def random_time_interval(tmin: float, tmax: float) -> float:
     """return a random time interval between max and min"""
@@ -51,13 +56,34 @@ def scorer(t: list[int | None]) -> None:
     print(f"You missed the light {misses} / {len(t)} times")
 
     t_good = [x for x in t if x is not None]
+    
+    max_val=-1
+    min_val=-1
+    avg_val=-1
+    score=-1
+    
+    size = len(t_good)
+    if size!=0:
+        max_val = max(t_good)
+        min_val = min(t_good)
+        avg_val = (sum(t_good))/size
+        score = size/len(t)
 
     print(t_good)
-
     # add key, value to this dict to store the minimum, maximum, average response time
     # and score (non-misses / total flashes) i.e. the score a floating point number
     # is in range [0..1]
-    data = {}
+    data = {
+        "minimum": min_val,
+        "maximum":max_val,
+        "average_response_time":avg_val,
+        "score":score
+        }
+    
+    #payload = dict(minimum=min_val, maximum=max_val, average_response_time=avg_val,score=score)
+    #payload = json.dumps(data)
+    
+    #j = json.loads(payload)
 
     # %% make dynamic filename and write JSON
 
@@ -69,11 +95,31 @@ def scorer(t: list[int | None]) -> None:
     print("write", filename)
 
     write_json(filename, data)
+    response = requests.post(database_api_url, json = data)
+    print(response.status_code)
 
 
 if __name__ == "__main__":
     # using "if __name__" allows us to reuse functions in other script files
 
+    # Connect to network
+    wlan = network.WLAN(network.STA_IF)
+    wlan.active(True)
+
+    # Fill in your network name (ssid) and password here:
+    ssid = "BU Guest (unencrypted)"
+    password = ""
+    wlan.connect(ssid, password)
+    
+    #adding the following line;
+    print("Am I Connected??")
+    print(wlan.isconnected())
+    
+    x = requests.get('https://ece463miniproject-default-rtdb.firebaseio.com/')
+    print(x.status_code)
+
+
+    
     led = Pin("LED", Pin.OUT)
     button = Pin(16, Pin.IN, Pin.PULL_UP)
 
@@ -100,3 +146,4 @@ if __name__ == "__main__":
     blinker(5, led)
 
     scorer(t)
+
