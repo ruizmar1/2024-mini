@@ -13,7 +13,7 @@ import urequests # handles making and servicing network requests
 
 
 
-N: int = 3
+N: int = 10
 sample_ms = 10.0
 on_ms = 500
 database_api_url = 'https://ece463miniproject-default-rtdb.firebaseio.com/scores.json'
