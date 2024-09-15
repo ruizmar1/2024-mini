@@ -12,3 +12,4 @@ Question: Using the code in exercise_sound.py as a starting point, modify the co
 Ans: Link to video
 
 ## Exercise 3
+User Story: As a user of the light clicking game...
