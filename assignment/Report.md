@@ -24,4 +24,5 @@ Screenshot of our database on Firebase:
 
 
 <br>
-**User Story**: As a user of the light clicking game...
+<br>
+**User Story** : As a user of the light clicking game...
