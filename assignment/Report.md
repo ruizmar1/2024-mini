@@ -17,9 +17,11 @@ Link to video: https://drive.google.com/file/d/16oouSC9TDdIZKEu-e_NxQhambTMFBB6o
 
 Our reference URL: https://ece463miniproject-default-rtdb.firebaseio.com/
 
+
 Screenshot of our database on Firebase:
 
 <img width="690" alt="Screenshot 2024-09-16 at 2 35 42 PM" src="https://github.com/user-attachments/assets/f86c2d78-5325-43f7-ab0c-06257f207fd7">
+
 
 
 User Story: As a user of the light clicking game...
