@@ -26,4 +26,9 @@ Screenshot of our database on Firebase:
 <br>
 <br>
 
+Link to Video: https://drive.google.com/file/d/1SQZ0Z0PZ42Gkc_vBM3TsAZtOr87TOdHJ/view?usp=sharing 
+
+<br>
+<br>
+
 **User Story** : As a user of the light clicking game...
