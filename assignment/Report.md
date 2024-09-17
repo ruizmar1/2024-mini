@@ -31,4 +31,4 @@ Link to Video: https://drive.google.com/file/d/1SQZ0Z0PZ42Gkc_vBM3TsAZtOr87TOdHJ
 <br>
 <br>
 
-**User Story** : As a user of the light clicking game, I begin by playing the game, pressing the button when I see the light illuminate on the Pi Pico. Then I can click on the URL link to the Firebase database, click on the most recent upload, and view my average, maximum, and minimum response times, as well as my game score.
+**User Story** : As a user of the light clicking game, I begin by playing the game, pressing the button when I see the light illuminate on the Pi Pico. Then I can click on the URL link to the Firebase database, click on the most recent upload, and view my average, maximum, and minimum response times, as well as my game score. My score is viewable to anyone that has the link to the database.
